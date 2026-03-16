@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.pytest_cache/
+artifacts/*
+!artifacts/latest_signal_report.json
+*.pyc

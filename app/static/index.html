@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signal Risk Lab</title>
+    <style>
+      :root {
+        --bg: #eef3f7;
+        --ink: #1b2430;
+        --muted: #5f6f81;
+        --panel: #ffffff;
+        --line: #ccd6e0;
+        --accent: #0f5ea8;
+      }
+      body {
+        margin: 0;
+        font-family: "Times New Roman", Georgia, serif;
+        background: linear-gradient(180deg, #f9fbfc, var(--bg));
+        color: var(--ink);
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 10px 20px rgba(27, 36, 48, 0.06);
+      }
+      .eyebrow {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 12px;
+      }
+      p { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="eyebrow">Quant Review Surface</span>
+      <h1>Signal Risk Lab</h1>
+      <p>Signal, risk, and execution posture in one reviewer-safe research surface.</p>
+      <div class="grid" id="cards"></div>
+    </main>
+    <script>
+      const endpoints = [
+        ["/api/runtime/brief", "Runtime Brief"],
+        ["/api/factor-board", "Factor Board"],
+        ["/api/risk-report", "Risk Report"],
+        ["/api/execution-posture", "Execution"],
+      ];
+      Promise.all(endpoints.map(([url]) => fetch(url).then((r) => r.json()))).then((items) => {
+        const cards = document.getElementById("cards");
+        items.forEach((payload, index) => {
+          const card = document.createElement("section");
+          card.className = "card";
+          card.innerHTML = `
+            <span class="eyebrow">${endpoints[index][1]}</span>
+            <pre>${JSON.stringify(payload, null, 2)}</pre>
+          `;
+          const pre = card.querySelector("pre");
+          pre.style.whiteSpace = "pre-wrap";
+          pre.style.fontFamily = "ui-monospace, SFMono-Regular, monospace";
+          pre.style.fontSize = "12px";
+          cards.appendChild(card);
+        });
+      });
+    </script>
+  </body>
+</html>
+
