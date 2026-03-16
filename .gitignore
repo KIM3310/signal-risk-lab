@@ -4,3 +4,4 @@ __pycache__/
 artifacts/*
 !artifacts/latest_signal_report.json
 *.pyc
+*.egg-info/
