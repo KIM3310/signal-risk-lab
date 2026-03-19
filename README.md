@@ -1,4 +1,9 @@
-# Finance Review Platform
+# Signal Risk Lab
+
+[![CI](https://github.com/KIM3310/signal-risk-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/KIM3310/signal-risk-lab/actions/workflows/ci.yml)
+![Python >=3.11](https://img.shields.io/badge/python-%3E%3D3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
 
 A domain-driven FastAPI application that unifies **quant signal/risk research** and **brokerage advisory review** into a single platform.
 
@@ -68,7 +73,7 @@ Each domain owns its **schemas**, **engine logic**, and **router** -- the hallma
 | `GET /api/advisory/advisor-handoff` | Handoff notes and meeting prep |
 | `GET /api/advisory/review-pack` | Combined advisory review summary |
 
-## Local run
+## Quick start
 
 ```bash
 python3 -m venv .venv
