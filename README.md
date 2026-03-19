@@ -1,6 +1,6 @@
 # Finance Review Platform
 
-A domain-driven FastAPI application that unifies **quant signal/risk research** and **brokerage advisory review** into a single, reviewer-safe platform.
+A domain-driven FastAPI application that unifies **quant signal/risk research** and **brokerage advisory review** into a single platform.
 
 The design demonstrates how two distinct finance domains -- systematic trading research and wealth-management client review -- can coexist under a shared architecture without blurring their boundaries.
 
@@ -94,4 +94,4 @@ python3 scripts/exercise_runtime.py
 - **Pydantic-first validation** at every schema boundary
 - **Parametrized testing** covering scoring math, validation constraints, and full route coverage
 - **Clean separation** that lets quant and advisory teams evolve independently
-- **Reviewer-safe surfaces** where every claim is backed by structured, inspectable data
+- **Inspectable outputs** where every claim is backed by structured data
