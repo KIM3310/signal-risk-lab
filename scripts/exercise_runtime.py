@@ -8,8 +8,9 @@ from app.main import app
 
 
 def main() -> None:
-    client = TestClient(app)
-    routes = [
+    """Run a quick smoke test against all platform routes."""
+    test_client = TestClient(app)
+    routes: list[str] = [
         "/health",
         "/api/runtime/brief",
         "/api/quant/brief",
@@ -24,7 +25,7 @@ def main() -> None:
         "/api/advisory/review-pack",
     ]
     for route in routes:
-        response = client.get(route)
+        response = test_client.get(route)
         response.raise_for_status()
     print(f"finance-review-platform smoke ok ({len(routes)} routes)")
 

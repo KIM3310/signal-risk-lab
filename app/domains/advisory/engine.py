@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import logging
+from typing import Any
+
 from app.domains.advisory.schemas import (
     AdvisorHandoff,
     AdvisoryReviewPack,
@@ -15,6 +18,7 @@ from app.domains.advisory.schemas import (
     RiskProfile,
 )
 
+logger = logging.getLogger(__name__)
 
 SEED_CLIENT = ClientReview(
     client_id="han-growth-042",
@@ -59,7 +63,7 @@ SEED_RECOMMENDATION = Recommendation(
     ],
 )
 
-SEED_HANDOFF = {
+SEED_HANDOFF: dict[str, Any] = {
     "owner": "relationship manager",
     "next_step": "prepare one-page call brief and reallocation rationale",
     "meeting_prep": [
@@ -75,6 +79,12 @@ SEED_HANDOFF = {
 
 
 def client_suitability() -> ClientSuitabilityPack:
+    """Assess client suitability based on profile, portfolio, and recommendation.
+
+    Returns:
+        ClientSuitabilityPack containing client review, portfolio state, and recommendation.
+    """
+    logger.info("Generating client suitability pack for %s", SEED_CLIENT.client_id)
     return ClientSuitabilityPack(
         schema="client-suitability-pack-v1",
         client=SEED_CLIENT,
@@ -84,6 +94,11 @@ def client_suitability() -> ClientSuitabilityPack:
 
 
 def portfolio_rationale() -> PortfolioRationale:
+    """Build the portfolio rationale linking house view to recommendation.
+
+    Returns:
+        PortfolioRationale with current mix, house view, and advisor copy.
+    """
     return PortfolioRationale(
         schema="portfolio-rationale-v1",
         house_view="keep growth exposure but reduce concentration and explanation risk",
@@ -93,11 +108,19 @@ def portfolio_rationale() -> PortfolioRationale:
             "easy to explain in client language",
             "lower concentration without flipping overall posture",
         ],
-        advisor_copy="Move from concentrated narrative exposure toward steadier diversified growth while keeping the long-term plan intact.",
+        advisor_copy=(
+            "Move from concentrated narrative exposure toward steadier diversified growth"
+            " while keeping the long-term plan intact."
+        ),
     )
 
 
 def advisor_handoff() -> AdvisorHandoff:
+    """Prepare advisor handoff pack with meeting prep and open questions.
+
+    Returns:
+        AdvisorHandoff with owner, next steps, and preparation details.
+    """
     return AdvisorHandoff(
         schema="advisor-handoff-pack-v1",
         client_id=SEED_CLIENT.client_id,
@@ -109,9 +132,17 @@ def advisor_handoff() -> AdvisorHandoff:
 
 
 def review_pack() -> AdvisoryReviewPack:
+    """Compile the advisory review pack for the review desk.
+
+    Returns:
+        AdvisoryReviewPack summary with suitability, actions, and handoff info.
+    """
     return AdvisoryReviewPack(
         schema="advisor-review-pack-v1",
-        headline="Suitability stays positive if the recommendation is delivered as a diversification conversation, not a product pitch.",
+        headline=(
+            "Suitability stays positive if the recommendation is delivered"
+            " as a diversification conversation, not a product pitch."
+        ),
         client_name=SEED_CLIENT.client_name,
         suitability_view=SEED_RECOMMENDATION.suitability_view,
         primary_action=SEED_RECOMMENDATION.primary_action,
@@ -121,7 +152,12 @@ def review_pack() -> AdvisoryReviewPack:
     )
 
 
-def runtime_brief() -> dict:
+def runtime_brief() -> dict[str, Any]:
+    """Return advisory domain runtime brief for the unified platform view.
+
+    Returns:
+        Dictionary describing deployment mode, desk, client, routes, and focus areas.
+    """
     return {
         "schema": "advisory-runtime-brief-v1",
         "deploymentMode": "review-only",

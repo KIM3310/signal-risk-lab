@@ -6,12 +6,16 @@ from pydantic import BaseModel, Field
 
 
 class HealthResponse(BaseModel):
+    """Platform health check response."""
+
     status: str = "ok"
     service: str
     domains: list[str]
 
 
 class RuntimeBrief(BaseModel):
+    """Base model for domain runtime briefs."""
+
     schema_: str = Field(..., alias="schema")
     deployment_mode: str = Field(..., alias="deploymentMode")
     routes: list[str]
