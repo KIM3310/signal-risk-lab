@@ -2,10 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from app.engine import write_artifacts
+from app.domains.quant.engine import write_artifacts
 
 
 if __name__ == "__main__":
     target = write_artifacts(Path(__file__).resolve().parents[1])
     print(f"wrote {target}")
-
