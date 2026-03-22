@@ -86,7 +86,7 @@ def client_suitability() -> ClientSuitabilityPack:
     """
     logger.info("Generating client suitability pack for %s", SEED_CLIENT.client_id)
     return ClientSuitabilityPack(
-        schema="client-suitability-pack-v1",
+        schema_="client-suitability-pack-v1",
         client=SEED_CLIENT,
         portfolio=SEED_PORTFOLIO,
         recommendation=SEED_RECOMMENDATION,
@@ -100,7 +100,7 @@ def portfolio_rationale() -> PortfolioRationale:
         PortfolioRationale with current mix, house view, and advisor copy.
     """
     return PortfolioRationale(
-        schema="portfolio-rationale-v1",
+        schema_="portfolio-rationale-v1",
         house_view="keep growth exposure but reduce concentration and explanation risk",
         current_mix=SEED_PORTFOLIO.current_mix,
         why_recommendation_travels=[
@@ -122,7 +122,7 @@ def advisor_handoff() -> AdvisorHandoff:
         AdvisorHandoff with owner, next steps, and preparation details.
     """
     return AdvisorHandoff(
-        schema="advisor-handoff-pack-v1",
+        schema_="advisor-handoff-pack-v1",
         client_id=SEED_CLIENT.client_id,
         owner=SEED_HANDOFF["owner"],
         next_step=SEED_HANDOFF["next_step"],
@@ -138,7 +138,7 @@ def review_pack() -> AdvisoryReviewPack:
         AdvisoryReviewPack summary with suitability, actions, and handoff info.
     """
     return AdvisoryReviewPack(
-        schema="advisor-review-pack-v1",
+        schema_="advisor-review-pack-v1",
         headline=(
             "Suitability stays positive if the recommendation is delivered"
             " as a diversification conversation, not a product pitch."

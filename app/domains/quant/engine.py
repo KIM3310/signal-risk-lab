@@ -87,7 +87,7 @@ def factor_board(tickers: list[dict[str, Any]] | None = None) -> FactorBoard:
     """
     ranked = ranked_book(tickers)
     return FactorBoard(
-        schema="factor-board-v1",
+        schema_="factor-board-v1",
         signal_family="quality-momentum-balanced",
         top_longs=[t.ticker for t in ranked[:3]],
         bottom_watchlist=[t.ticker for t in ranked[-2:]],
@@ -102,7 +102,7 @@ def risk_report() -> RiskReport:
         RiskReport with turnover, exposure, and concentration data.
     """
     return RiskReport(
-        schema="risk-report-v1",
+        schema_="risk-report-v1",
         predicted_turnover=0.19,
         gross_exposure=1.35,
         sector_concentration_flag=ConcentrationFlag.moderate,
@@ -122,7 +122,7 @@ def execution_posture() -> ExecutionPosture:
         ExecutionPosture with slippage, capacity, and go-live assessment.
     """
     return ExecutionPosture(
-        schema="execution-posture-v1",
+        schema_="execution-posture-v1",
         slippage_assumption_bps=14,
         capacity_bucket=CapacityBucket.small_mid,
         go_live_view="reviewable paper-trade candidate",
@@ -144,7 +144,7 @@ def research_pack() -> QuantResearchPack:
     risk = risk_report()
     execution = execution_posture()
     return QuantResearchPack(
-        schema="quant-research-pack-v1",
+        schema_="quant-research-pack-v1",
         headline="The book stays interesting only because signal quality survives cost and turnover scrutiny.",
         top_longs=board.top_longs,
         predicted_turnover=risk.predicted_turnover,
