@@ -1,5 +1,9 @@
 # Signal Risk Lab
 
+> **Archived / Supporting repo**  
+> The active governed analytics and approval/review story now lives primarily in **Nexus-Hive**, **regulated-case-workbench**, and related platform work.  
+> Keep this repo as historical proof for the finance-domain signal / advisory review lane.
+
 [![CI](https://github.com/KIM3310/signal-risk-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/KIM3310/signal-risk-lab/actions/workflows/ci.yml)
 ![Python >=3.11](https://img.shields.io/badge/python-%3E%3D3.11-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688)
