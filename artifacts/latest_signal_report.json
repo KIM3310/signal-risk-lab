@@ -1,0 +1,109 @@
+{
+  "runtime_brief": {
+    "schema": "signal-risk-runtime-brief-v1",
+    "deploymentMode": "research-review",
+    "routes": [
+      "/health",
+      "/api/runtime/brief",
+      "/api/factor-board",
+      "/api/risk-report",
+      "/api/execution-posture",
+      "/api/research-pack"
+    ],
+    "focus": [
+      "factor signal",
+      "risk discipline",
+      "execution viability"
+    ]
+  },
+  "factor_board": {
+    "schema": "factor-board-v1",
+    "signal_family": "quality-momentum-balanced",
+    "top_longs": [
+      "KQH",
+      "DMS",
+      "MXG"
+    ],
+    "bottom_watchlist": [
+      "RNT",
+      "SLV"
+    ],
+    "rows": [
+      {
+        "ticker": "KQH",
+        "momentum": 0.74,
+        "quality": 0.66,
+        "value": 0.41,
+        "volatility": 0.28,
+        "score": 0.618
+      },
+      {
+        "ticker": "DMS",
+        "momentum": 0.62,
+        "quality": 0.71,
+        "value": 0.54,
+        "volatility": 0.24,
+        "score": 0.6115
+      },
+      {
+        "ticker": "MXG",
+        "momentum": 0.83,
+        "quality": 0.59,
+        "value": 0.33,
+        "volatility": 0.46,
+        "score": 0.6
+      },
+      {
+        "ticker": "RNT",
+        "momentum": 0.31,
+        "quality": 0.48,
+        "value": 0.69,
+        "volatility": 0.35,
+        "score": 0.4105
+      },
+      {
+        "ticker": "SLV",
+        "momentum": 0.18,
+        "quality": 0.37,
+        "value": 0.72,
+        "volatility": 0.41,
+        "score": 0.3135
+      }
+    ]
+  },
+  "risk_report": {
+    "schema": "risk-report-v1",
+    "predicted_turnover": 0.19,
+    "gross_exposure": 1.35,
+    "sector_concentration_flag": "moderate",
+    "drawdown_guard": "active",
+    "notes": [
+      "current book remains tradable after basic turnover guard",
+      "single-name crowding is acceptable but not loose",
+      "rebalance cadence should stay weekly rather than daily"
+    ]
+  },
+  "execution_posture": {
+    "schema": "execution-posture-v1",
+    "slippage_assumption_bps": 14,
+    "capacity_bucket": "small-mid",
+    "go_live_view": "reviewable paper-trade candidate",
+    "why": [
+      "signal remains positive after simple cost haircut",
+      "turnover is below internal caution line",
+      "risk posture is acceptable but still needs crowding watch"
+    ]
+  },
+  "research_pack": {
+    "schema": "quant-research-pack-v1",
+    "headline": "The book stays interesting only because signal quality survives cost and turnover scrutiny.",
+    "top_longs": [
+      "KQH",
+      "DMS",
+      "MXG"
+    ],
+    "predicted_turnover": 0.19,
+    "capacity_bucket": "small-mid",
+    "go_live_view": "reviewable paper-trade candidate"
+  }
+}
