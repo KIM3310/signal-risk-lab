@@ -10,3 +10,4 @@ artifacts/*
 .DS_Store
 .omc/
 dist/
+.mypy_cache/
