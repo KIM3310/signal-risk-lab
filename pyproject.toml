@@ -7,6 +7,8 @@ name = "finance-review-platform"
 version = "1.0.0"
 description = "Domain-driven finance review platform spanning quant signal/risk research and brokerage advisory review."
 requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Doeon Kim", email = "ehdjs1351@gmail.com"}]
 dependencies = [
   "fastapi==0.115.12",
   "pydantic==2.11.3",

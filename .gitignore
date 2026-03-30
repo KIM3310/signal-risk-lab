@@ -9,3 +9,4 @@ artifacts/*
 .env.*
 .DS_Store
 .omc/
+dist/
