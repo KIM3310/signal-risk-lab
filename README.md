@@ -112,3 +112,11 @@ python3 scripts/exercise_runtime.py
 - **Parametrized testing** covering scoring math, validation constraints, and full route coverage
 - **Clean separation** that lets quant and advisory teams evolve independently
 - **Inspectable outputs** where every claim is backed by structured data
+
+## Cloud + AI Architecture
+
+This repository includes a neutral cloud and AI engineering blueprint that maps the current proof surface to runtime boundaries, data contracts, model-risk controls, deployment posture, and validation hooks.
+
+- [Cloud + AI architecture blueprint](docs/cloud-ai-architecture.md)
+- [Machine-readable architecture manifest](architecture/blueprint.json)
+- Validation command: `python3 scripts/validate_architecture_blueprint.py`
